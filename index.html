@@ -15,11 +15,20 @@
     <dialog class="modal" id="modal">
         <button class="button close-button">x</button>
         <form class="form" method="dialog">
-          <label>Title <input type="text"></label>
-          <label>Author <input type="text"></label>
-          <label>Year <input type="number"></label>
-          <button class="button">Read</button>
-          <button class="button" type="submit">submit form</button>
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text">
+
+          <label  for="author">Author</label>
+          <input id="author" name="author" type="text">
+
+          <label  for="year">Year</label>
+          <input  id="year" name="year" type="number">
+
+          <label  for="pages">Pages</label>
+          <input  id="pages" name="pages" type="number">
+
+
+          <button class="button" id="update-entry" type="submit">Update Entry</button>
         </form>
       
     </dialog>

@@ -2,6 +2,7 @@ const container = document.querySelector(".container");
 const modal = document.querySelector("#modal");
 const openModal = document.querySelector(".open-button");
 const closeModal = document.querySelector(".close-button");
+const updateEntry = document.querySelector("#update-entry");
 
 const myLibrary = ["The Hobbit", "Catcher in the Rye"];
 
@@ -25,12 +26,17 @@ function addBookToLibrary() {
     myLibrary.push(input);
 };
 
-function Book(title, author, year, read=false){
+function Book(title, author, year, pages, read=false){
     this.title = title;
     this.author = author;
     this.year = year;
+    this.pages = pages;
     this.read = read;
 };
+
+function createBook(){
+
+}
 
 // addBookToLibrary();
 displayBooks(myLibrary);
@@ -44,7 +50,9 @@ closeModal.addEventListener("click", () => {
   modal.close();
 });
 
-
+updateEntry.addEventListener('click', ()=>{
+    createBook();
+});
 
 // const lotr = new Book('LOTR', 'JRR Tolken', '1946');
 
