@@ -35,7 +35,7 @@ function Book(title, author, year, read=false){
 // addBookToLibrary();
 displayBooks(myLibrary);
 
-// Add book modal form
+// Add book modal formC
 openModal.addEventListener("click", () => {
   modal.showModal();
 });
