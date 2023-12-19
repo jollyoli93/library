@@ -1,0 +1,10 @@
+.container {
+    display: grid;
+    justify-items: center;
+}
+
+.card {
+    border: solid black 1px;
+    height: 100px;
+    width: 100px;
+}
