@@ -4,6 +4,11 @@ const openModal = document.querySelector(".open-button");
 const closeModal = document.querySelector(".close-button");
 const updateEntry = document.querySelector("#update-entry");
 
+const title = document.querySelector("input[name='title'");
+const author = document.querySelector("input[name='author'");
+const year = document.querySelector("input[name='year'");
+const pages = document.querySelector("input[name='pages'");
+
 let bookIndex = 1;
 
 const myLibrary = ["The Hobbit", "Catcher in the Rye"];
@@ -53,21 +58,8 @@ closeModal.addEventListener("click", () => {
 updateEntry.addEventListener('click', (e)=>{
     e.preventDefault();
 
-    const form = document.querySelector('#form');
-    const title = document.querySelector("input[name='title'").value;
-    const author = document.querySelector("input[name='author'").value;
-    const year = document.querySelector("input[name='year'").value;
-    const pages = document.querySelector("input[name='pages'").value;
-
-    let newBook = new Book(title, author, year, pages);
+    let newBook = new Book(title.value, author.value, year.value, pages.value);
     myLibrary.push(newBook.title);
-
-    // console.log(newBook);
+    
     console.log(newBook);
-    // console.log(myLibrary);
 });
-
-
-// const lotr = new Book('LOTR', 'JRR Tolken', '1946');
-
-// console.log(lotr.read);
