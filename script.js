@@ -52,18 +52,20 @@ closeModal.addEventListener("click", () => {
 
 updateEntry.addEventListener('click', (e)=>{
     e.preventDefault();
-    let newBook = new Book( ("input[name = 'title']").value,
-                            ("input[name = 'author']").value,
-                            ("input[name = 'year']").value,
-                            ("input[name = 'pages']").value,
-                            );
+
+    const form = document.querySelector('#form');
+    const title = document.querySelector("input[name='title'").value;
+    const author = document.querySelector("input[name='author'").value;
+    const year = document.querySelector("input[name='year'").value;
+    const pages = document.querySelector("input[name='pages'").value;
+
+    let newBook = new Book(title, author, year, pages);
     myLibrary.push(newBook.title);
 
     // console.log(newBook);
-    console.log(e.target.value);
+    console.log(newBook);
     // console.log(myLibrary);
 });
-
 
 
 // const lotr = new Book('LOTR', 'JRR Tolken', '1946');
