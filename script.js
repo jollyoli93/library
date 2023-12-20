@@ -9,34 +9,43 @@ const author = document.querySelector("input[name='author'");
 const year = document.querySelector("input[name='year'");
 const pages = document.querySelector("input[name='pages'");
 
-let bookIndex = 1;
+let bookIndex = 0;
 
-const myLibrary = ["The Hobbit", "Catcher in the Rye"];
+const myLibrary = [];
 
-function displayBooks(books){
-    books.map(book => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.textContent = bookIndex + '. ' + book;
+function createCard(book){
+    const card = document.createElement("div");
+    const title = document.createElement("p");
+    const author = document.createElement("p");
+    const year = document.createElement("p");
+    const pages  = document.createElement("p");
 
-        const delBtn = document.createElement("button");
-        delBtn.setAttribute('id', book+bookIndex)
+    card.className = "card";
+    title.textContent = book.title;
+    author.textContent = book.author;
+    year.textContent = book.year;
+    pages.textContent = book.pages + " pages";
 
-        const readBtn = document.createElement("button");
-        readBtn.setAttribute('id', book)
-        readBtn.textContent = "Read";
-        
-        card.appendChild(readBtn);
-        container.appendChild(card);
+    const delBtn = document.createElement("button");
+    delBtn.setAttribute('id', "delete " + bookIndex);
+    delBtn.textContent = "Delete";
 
-        bookIndex += 1;
-    });
-};
+    const readBtn = document.createElement("button");
+    readBtn.setAttribute('id', "read "+ bookIndex)
+    readBtn.textContent = "Read";
+    
 
-function addBookToLibrary() {
-    // input = prompt("Please add a book");
-    myLibrary.push(input);
-};
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(year);
+    card.appendChild(pages);
+
+    card.appendChild(readBtn);
+    card.appendChild(delBtn);
+    container.appendChild(card);
+
+    bookIndex += 1;
+}
 
 function Book(title, author, year, pages, read=false){
     this.title = title;
@@ -46,7 +55,6 @@ function Book(title, author, year, pages, read=false){
     this.read = read;
 };
 
-// Add book modal form
 openModal.addEventListener("click", () => {
   modal.showModal();
 });
@@ -60,6 +68,5 @@ updateEntry.addEventListener('click', (e)=>{
 
     let newBook = new Book(title.value, author.value, year.value, pages.value);
     myLibrary.push(newBook.title);
-    
-    console.log(newBook);
+    createCard(newBook);
 });
