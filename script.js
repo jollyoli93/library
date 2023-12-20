@@ -4,13 +4,18 @@ const openModal = document.querySelector(".open-button");
 const closeModal = document.querySelector(".close-button");
 const updateEntry = document.querySelector("#update-entry");
 
+let bookIndex = 1;
+
 const myLibrary = ["The Hobbit", "Catcher in the Rye"];
 
 function displayBooks(books){
     books.map(book => {
         const card = document.createElement("div");
         card.className = "card";
-        card.textContent = book;
+        card.textContent = bookIndex + '. ' + book;
+
+        const delBtn = document.createElement("button");
+        delBtn.setAttribute('id', book+bookIndex)
 
         const readBtn = document.createElement("button");
         readBtn.setAttribute('id', book)
@@ -18,6 +23,8 @@ function displayBooks(books){
         
         card.appendChild(readBtn);
         container.appendChild(card);
+
+        bookIndex += 1;
     });
 };
 
@@ -34,14 +41,7 @@ function Book(title, author, year, pages, read=false){
     this.read = read;
 };
 
-function createBook(){
-
-}
-
-// addBookToLibrary();
-displayBooks(myLibrary);
-
-// Add book modal formC
+// Add book modal form
 openModal.addEventListener("click", () => {
   modal.showModal();
 });
@@ -50,9 +50,21 @@ closeModal.addEventListener("click", () => {
   modal.close();
 });
 
-updateEntry.addEventListener('click', ()=>{
-    createBook();
+updateEntry.addEventListener('click', (e)=>{
+    e.preventDefault();
+    let newBook = new Book( ("input[name = 'title']").value,
+                            ("input[name = 'author']").value,
+                            ("input[name = 'year']").value,
+                            ("input[name = 'pages']").value,
+                            );
+    myLibrary.push(newBook.title);
+
+    // console.log(newBook);
+    console.log(e.target.value);
+    // console.log(myLibrary);
 });
+
+
 
 // const lotr = new Book('LOTR', 'JRR Tolken', '1946');
 
