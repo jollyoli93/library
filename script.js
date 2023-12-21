@@ -21,30 +21,41 @@ function createCard(book){
     const pages  = document.createElement("p");
 
     card.className = "card";
+    card.setAttribute('id', "card" + bookIndex);
     title.textContent = book.title;
     author.textContent = book.author;
     year.textContent = book.year;
     pages.textContent = book.pages + " pages";
 
+
     const delBtn = document.createElement("button");
-    delBtn.setAttribute('id', "delete " + bookIndex);
     delBtn.textContent = "Delete";
 
-    const readBtn = document.createElement("button");
-    readBtn.setAttribute('id', "read "+ bookIndex)
-    readBtn.textContent = "Read";
-    
+    const readBtnInput = document.createElement("input");
+    const readBtnLabel = document.createElement("label")
+    readBtnInput.setAttribute('id', "read "+ bookIndex);
+    readBtnInput.setAttribute('type', "checkbox");
+    readBtnInput.setAttribute('name', "read "+ bookIndex);
+    readBtnLabel.setAttribute('name', "read "+ bookIndex);
+    readBtnLabel.textContent = "Read"
 
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(year);
     card.appendChild(pages);
 
-    card.appendChild(readBtn);
+    card.appendChild(readBtnLabel);
+    card.appendChild(readBtnInput);
     card.appendChild(delBtn);
     container.appendChild(card);
 
     bookIndex += 1;
+
+    delBtn.addEventListener('click', ()=>{
+        const toDelete = document.querySelector('#'+'card' + 0);
+        toDelete.remove();
+        console.log(toDelete);
+    })
 }
 
 function Book(title, author, year, pages, read=false){
