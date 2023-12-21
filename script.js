@@ -29,6 +29,7 @@ function createCard(book){
 
 
     const delBtn = document.createElement("button");
+    delBtn.setAttribute('value', bookIndex);
     delBtn.textContent = "Delete";
 
     const readBtnInput = document.createElement("input");
@@ -49,13 +50,15 @@ function createCard(book){
     card.appendChild(delBtn);
     container.appendChild(card);
 
-    bookIndex += 1;
+    delBtn.addEventListener('click', (e)=>{
+      const toDelete = document.querySelector('#'+'card' +  e.target.value);
+      console.log(bookIndex);
+      console.log(e.target.value)
+      console.log(toDelete);
+      toDelete.remove();
+    });
 
-    delBtn.addEventListener('click', ()=>{
-        const toDelete = document.querySelector('#'+'card' + 0);
-        toDelete.remove();
-        console.log(toDelete);
-    })
+    bookIndex += 1;
 }
 
 function Book(title, author, year, pages, read=false){
