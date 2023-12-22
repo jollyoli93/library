@@ -4,6 +4,7 @@ const openModal = document.querySelector(".open-button");
 const closeModal = document.querySelector(".close-button");
 const updateEntry = document.querySelector("#update-entry");
 
+const inputFields = document.querySelectorAll("input")
 const title = document.querySelector("input[name='title'");
 const author = document.querySelector("input[name='author'");
 const year = document.querySelector("input[name='year'");
@@ -83,6 +84,12 @@ updateEntry.addEventListener('click', (e)=>{
     let newBook = new Book(title.value, author.value, year.value, pages.value);
     myLibrary.push(newBook.title);
     createCard(newBook);
+
+    // not working yet
+    inputFields.forEach((input)=>{
+      input.textContent = '';
+    })
+    modal.close()
 });
 
 // styling only

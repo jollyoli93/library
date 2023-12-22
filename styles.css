@@ -69,3 +69,9 @@
   height: 1vh;
   align-items: start;
 }
+
+form {
+  display: grid;
+  gap: 1em;
+}
+
