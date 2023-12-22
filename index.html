@@ -8,29 +8,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container"></div>
+    <div class="main">
+        <button class="button open-button">NEW BOOK</button>
+        
+        <div class="container"></div>
 
-    <button class="button open-button">NEW BOOK</button>
+        <dialog class="modal" id="modal">
+            <button class="button close-button">x</button>
+            <form class="form" id="form" method="dialog">
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text">
 
-    <dialog class="modal" id="modal">
-        <button class="button close-button">x</button>
-        <form class="form" id="form" method="dialog">
-          <label for="title">Title</label>
-          <input id="title" name="title" type="text">
+            <label  for="author">Author</label>
+            <input id="author" name="author" type="text">
 
-          <label  for="author">Author</label>
-          <input id="author" name="author" type="text">
+            <label  for="year">Year</label>
+            <input  id="year" name="year" type="number">
 
-          <label  for="year">Year</label>
-          <input  id="year" name="year" type="number">
-
-          <label  for="pages">Pages</label>
-          <input  id="pages" name="pages" type="number">
-          
-          <button class="button" id="update-entry" type="submit">Update Entry</button>
-        </form>
-      
-    </dialog>
-
+            <label  for="pages">Pages</label>
+            <input  id="pages" name="pages" type="number">
+            
+            <button class="button" id="update-entry" type="submit">Update Entry</button>
+            </form>
+        </dialog>
+    </div>
 </body>
 </html>

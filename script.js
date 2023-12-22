@@ -84,3 +84,11 @@ updateEntry.addEventListener('click', (e)=>{
     myLibrary.push(newBook.title);
     createCard(newBook);
 });
+
+// styling only
+theHobbit = new Book("the hobbit", "JRR Tolken", "1937", 320)
+felloship = new Book("Fellowship of the ring", "JRR Tolken", 1954, 432)
+tester = [theHobbit, felloship];
+tester.map((test)=>{
+  createCard(test);
+})

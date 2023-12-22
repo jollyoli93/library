@@ -1,15 +1,28 @@
+/* .main{
+  border: solid  black;
+  display: flex;
+  flex-direction: row;
+} */
+
 .container {
     display: grid;
-    justify-items: center;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    row-gap: 70px;
 }
 
 .card {
     border: solid black 1px;
-    height: 100%;
-    width: 100px;
+    background-color: rgba(245, 245, 245, 0.64);
+    width: max(10vw, 200px);
+    height: max(300px, 100%);
+    box-sizing: border-box;
+    box-shadow: black 2px 2px;
+    border-radius: 3px;
 }
-
 .modal {
+    border: solid black;
     padding: 1em;
     max-width: 50ch;
     border: 0;
@@ -27,7 +40,6 @@
   /* extra styling */
   
   body {
-    min-height: 100vh;
     margin: 2rem;
     font-family: system-ui;
     font-size: 1.25rem;
@@ -36,13 +48,7 @@
     background-image: url('https://images.unsplash.com/photo-1644242629712-943ae5c8c4f3?crop=entropy&cs=srgb&fm=jpg&ixid=MnwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHx8MTY0Njc1MjQxNA&ixlib=rb-1.2.1&q=85');
     background-size: cover;
   }
-  
-  h1 em {
-    color: var(--cyan-9);
-    text-decoration: underline;
-    text-underline-offset: 0.25em;
-  }
-  
+
   .button {
     border: 0;
     cursor: pointer;
@@ -56,9 +62,10 @@
   .button:focus {
     background: var(--cyan-9);
   }
-  
-  form {
-    display: grid;
-    gap: 1em;
-  }
-  
+
+  .button.open-button {
+  color: black;
+  font-size: larger;
+  height: 1vh;
+  align-items: start;
+}
