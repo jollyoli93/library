@@ -53,9 +53,6 @@ function createCard(book){
 
     delBtn.addEventListener('click', (e)=>{
       const toDelete = document.querySelector('#'+'card' +  e.target.value);
-      console.log(bookIndex);
-      console.log(e.target.value)
-      console.log(toDelete);
       toDelete.remove();
     });
 
@@ -85,17 +82,19 @@ updateEntry.addEventListener('click', (e)=>{
     myLibrary.push(newBook.title);
     createCard(newBook);
 
-    // not working yet
+    // WIP Clear inpout fields upon submisson
     inputFields.forEach((input)=>{
-      input.textContent = '';
-    })
+      console.log(input);
+      input.value = '';
+    });
+
     modal.close()
 });
 
 // styling only
-theHobbit = new Book("the hobbit", "JRR Tolken", "1937", 320)
-felloship = new Book("Fellowship of the ring", "JRR Tolken", 1954, 432)
-tester = [theHobbit, felloship];
-tester.map((test)=>{
-  createCard(test);
-})
+// theHobbit = new Book("the hobbit", "JRR Tolken", "1937", 320)
+// felloship = new Book("Fellowship of the ring", "JRR Tolken", 1954, 432)
+// tester = [theHobbit, felloship];
+// tester.map((test)=>{
+//   createCard(test);
+// })
