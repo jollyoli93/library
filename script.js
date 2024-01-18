@@ -59,12 +59,15 @@ function createCard(book){
     bookIndex += 1;
 }
 
-function Book(title, author, year, pages, read=false){
-    this.title = title;
-    this.author = author;
-    this.year = year;
-    this.pages = pages;
-    this.read = read;
+class Book {
+
+    constructor(title, author, year, pages, read=false){
+      this.title = title;
+      this.author = author;
+      this.year = year;
+      this.pages = pages;
+      this.read = read;
+    }
 };
 
 openModal.addEventListener("click", () => {
@@ -81,8 +84,7 @@ updateEntry.addEventListener('click', (e)=>{
     let newBook = new Book(title.value, author.value, year.value, pages.value);
     myLibrary.push(newBook.title);
     createCard(newBook);
-
-    // WIP Clear inpout fields upon submisson
+    
     inputFields.forEach((input)=>{
       console.log(input);
       input.value = '';
